@@ -47,14 +47,12 @@ class URLExtract:
     # file name of cached list of TLDs downloaded from IANA
     _cache_file_name = '.tlds'
 
-    def __init__(self):
+    def __init__(self, dir_path=os.path.dirname(__file__)):
         """
         Initialize function for URLExtract class.
         Tries to get cached .tlds, if cached file does not exist it will try to download new list from IANNA
         and save it to users home directory.
         """
-        # get directory for cached file
-        dir_path = os.path.dirname(__file__)
         if not os.access(dir_path, os.W_OK):
             # get path to home dir
             dir_path = os.path.expanduser('~')
